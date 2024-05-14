@@ -1,4 +1,4 @@
-# example-static-site
+# Example disco Static Site
 
 This is an example static site.
 
