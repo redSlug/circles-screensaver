@@ -1,15 +1,28 @@
 const colors = [
-  "#070606",
-  "#3a3639",
-  "#8d838b",
-  "#ebd9e8",
-  "#d5ceea",
-  "#afb7e1",
-  "#91a3d6",
-  "#b9a5c3",
-  "#daa6b0",
-  "#ecaeaa"
+    "#2dd88e",
+    "#83ecb7",
+    "#c8d2d5",
+    "#fab1f3",
+    "#ffacf9",
+    "#ffacfc",
+    "#faafff",
+    "#cad2ff",
+    "#84eeff",
+    "#56fafb"
 ];
+
+const rgbColors = [
+  "rgb(45,216,142)",
+  "rgb(131,236,183)",
+  "rgb(200,210,213)",
+  "rgb(250,177,243)",
+  "rgb(255,172,249)",
+  "rgb(255,172,252)",
+  "rgb(250,175,255)",
+  "rgb(202,210,255)",
+  "rgb(132,238,255)",
+  "rgb(86,250,251)"
+]
 
 let circles = [];
 let circleSize = 100;
@@ -49,19 +62,18 @@ function draw() {
 }
 
 class CircleFriend {
-  constructor() {  
+  constructor() {
     this.position = createVector(random(50, windowWidth - 50), random(50, windowHeight - 50));
     this.size = circleSize;
     this.color = random(colors)
-    this.velocity = createVector(random(-0.5,0.5), random(-0.5,0.5));
+    this.velocity = createVector(randomGaussian(0.5, 2), randomGaussian(0.5, 2));
   }
   renderCircle() {
     fill(this.color);
     this.position.add(this.velocity)
-    width = window.innerWidth
-    height = window.innerHeight
-    
-    // keeps within bounds of window   
+    const width = window.innerWidth
+    const height = window.innerHeight
+
     if (this.position.x > width - 50 || this.position.x < 50) {
       this.velocity.x = this.velocity.x * -1;
     }
