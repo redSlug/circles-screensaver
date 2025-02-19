@@ -1,5 +1,7 @@
-# Example disco Static Site
+# circles-screensaver
 
-This is an example static site.
+[Check it out](https://circles-screensaver.rcdis.co/)
 
-[Read the documentation](https://docs.letsdisco.dev/deployment-guides/static-site) on how to deploy static sites using disco.
+A Pen created on CodePen while pairing w/ [Aparna](https://github.com/cranberrymuffin) at the [recurse center](https://www.recurse.com/) and [deployed using disco](https://docs.letsdisco.dev/deployment-guides/static-site)
+
+Original URL: [https://codepen.io/redslug/pen/wBvMXNM/37d7cd458793898bbc0c60a2c433067d](https://codepen.io/redslug/pen/wBvMXNM/37d7cd458793898bbc0c60a2c433067d).
