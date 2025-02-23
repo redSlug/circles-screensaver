@@ -48,6 +48,48 @@ function draw() {
   }
 }
 
+function mouseDragged() {
+  if (draggingCircle) {
+    draggingCircle.position.x = mouseX - offsetX;
+    draggingCircle.position.y = mouseY - offsetY;
+  }
+}
+
+function mousePressed() {
+  let topmostCircle = null;
+
+  // Iterate in reverse order to find the topmost circle
+  for (let i = circles.length - 1; i >= 0; i--) {
+    if (circles[i].contains(mouseX, mouseY)) {
+      topmostCircle = circles[i];
+      break;
+    }
+  }
+
+  if (topmostCircle) {
+    draggingCircle = topmostCircle;
+    draggingCircle.isDragged = true;
+    offsetX = mouseX - draggingCircle.position.x;
+    offsetY = mouseY - draggingCircle.position.y;
+
+    // Bring the dragged circle to the front by reordering the array
+    circles.splice(circles.indexOf(draggingCircle), 1);
+    circles.push(draggingCircle);
+  }
+}
+
+function mouseReleased() {
+  if (draggingCircle) {
+    // Resume movement after dragging
+    draggingCircle.velocity = createVector(
+      randomGaussian(0.5, 2),
+      randomGaussian(0.5, 2)
+    );
+    draggingCircle.isDragged = false;
+    draggingCircle = null;
+  }
+}
+
 class CircleFriend {
   constructor() {
     this.position = createVector(
@@ -83,47 +125,5 @@ class CircleFriend {
 
   contains(px, py) {
     return dist(px, py, this.position.x, this.position.y) < this.size / 2;
-  }
-}
-
-function mousePressed() {
-  let topmostCircle = null;
-
-  // Iterate in reverse order to find the topmost circle
-  for (let i = circles.length - 1; i >= 0; i--) {
-    if (circles[i].contains(mouseX, mouseY)) {
-      topmostCircle = circles[i];
-      break;
-    }
-  }
-
-  if (topmostCircle) {
-    draggingCircle = topmostCircle;
-    draggingCircle.isDragged = true;
-    offsetX = mouseX - draggingCircle.position.x;
-    offsetY = mouseY - draggingCircle.position.y;
-
-    // Bring the dragged circle to the front by reordering the array
-    circles.splice(circles.indexOf(draggingCircle), 1);
-    circles.push(draggingCircle);
-  }
-}
-
-function mouseDragged() {
-  if (draggingCircle) {
-    draggingCircle.position.x = mouseX - offsetX;
-    draggingCircle.position.y = mouseY - offsetY;
-  }
-}
-
-function mouseReleased() {
-  if (draggingCircle) {
-    // Resume movement after dragging
-    draggingCircle.velocity = createVector(
-      randomGaussian(0.5, 2),
-      randomGaussian(0.5, 2)
-    );
-    draggingCircle.isDragged = false;
-    draggingCircle = null;
   }
 }
