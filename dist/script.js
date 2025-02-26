@@ -112,6 +112,12 @@ class CircleFriend {
       this.bounceOffWalls();
     }
     circle(this.position.x, this.position.y, this.size);
+    fill('cornflowerblue');
+    text("Hello", this.position.x, this.position.y);
+    textSize(12);
+    textAlign(CENTER, CENTER)
+
+
   }
 
   bounceOffWalls() {
