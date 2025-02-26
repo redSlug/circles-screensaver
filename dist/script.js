@@ -24,7 +24,7 @@ function drawColorPalette() {
 }
 
 function initializeRandomCircles() {
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < circleText.length; i++) {
     circles.push(new CircleFriend());
   }
 }
@@ -38,6 +38,7 @@ function setup() {
 
   // Call repaint() when the button is pressed.
   button.mousePressed(() => {
+    circles.push(new CircleFriend());
     circleText.push(input.value());
   });
   createCanvas(windowWidth, windowHeight);
