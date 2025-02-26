@@ -15,7 +15,7 @@ let circles = [];
 let circleSize = 100;
 let draggingCircle = null;
 let offsetX, offsetY;
-let circleText = "";
+let circleText = ["hello", "world"];
 function drawColorPalette() {
   for (let i = 0; i < colors.length; i++) {
     fill(colors[i]);
@@ -38,7 +38,7 @@ function setup() {
 
   // Call repaint() when the button is pressed.
   button.mousePressed(() => {
-    circleText = input.value();
+    circleText.push(input.value());
   });
   createCanvas(windowWidth, windowHeight);
   drawColorPalette();
@@ -53,8 +53,13 @@ function draw() {
   background(255);
 
   // Draw circles in order
-  for (let circle of circles) {
-    circle.renderCircle();
+  for (let i = 0; i < circles.length; i++) {
+    let circle = circles[i];
+    if (circleText.length > i) {
+      circle.renderCircle(circleText[i]);
+    } else {
+      circle.renderCircle();
+    }
   }
 }
 
@@ -115,17 +120,20 @@ class CircleFriend {
     this.isDragged = false;
   }
 
-  renderCircle() {
+  renderCircle(circleText) {
     fill(this.color);
     if (!this.isDragged) {
       this.position.add(this.velocity);
       this.bounceOffWalls();
     }
     circle(this.position.x, this.position.y, this.size);
-    fill("cornflowerblue");
-    text(circleText, this.position.x, this.position.y);
-    textSize(12);
-    textAlign(CENTER, CENTER);
+
+    if (circleText) {
+      fill("cornflowerblue");
+      text(circleText, this.position.x, this.position.y);
+      textSize(12);
+      textAlign(CENTER, CENTER);
+    }
   }
 
   bounceOffWalls() {
