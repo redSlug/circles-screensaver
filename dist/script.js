@@ -96,6 +96,7 @@ class CircleFriend {
       random(50, windowWidth - 50),
       random(50, windowHeight - 50)
     );
+    this.text = "hi";
     this.size = circleSize;
     this.color = random(colors);
     this.velocity = createVector(
