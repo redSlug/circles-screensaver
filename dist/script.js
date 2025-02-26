@@ -15,7 +15,7 @@ let circles = [];
 let circleSize = 100;
 let draggingCircle = null;
 let offsetX, offsetY;
-
+let circleText = "";
 function drawColorPalette() {
   for (let i = 0; i < colors.length; i++) {
     fill(colors[i]);
@@ -30,6 +30,16 @@ function initializeRandomCircles() {
 }
 
 function setup() {
+  input = createInput("");
+  input.position(50, 50);
+  // Create a button and place it beneath the canvas.
+  let button = createButton("click me");
+  button.position(200, 50);
+
+  // Call repaint() when the button is pressed.
+  button.mousePressed(() => {
+    circleText = input.value();
+  });
   createCanvas(windowWidth, windowHeight);
   drawColorPalette();
   initializeRandomCircles();
@@ -112,12 +122,10 @@ class CircleFriend {
       this.bounceOffWalls();
     }
     circle(this.position.x, this.position.y, this.size);
-    fill('cornflowerblue');
-    text("Hello", this.position.x, this.position.y);
+    fill("cornflowerblue");
+    text(circleText, this.position.x, this.position.y);
     textSize(12);
-    textAlign(CENTER, CENTER)
-
-
+    textAlign(CENTER, CENTER);
   }
 
   bounceOffWalls() {
