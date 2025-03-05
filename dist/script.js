@@ -1,3 +1,5 @@
+import { initializePeer } from "./networking.js";
+
 const colors = [
   "#2dd88e",
   "#83ecb7",
@@ -10,6 +12,10 @@ const colors = [
   "#84eeff",
   "#56fafb",
 ];
+
+console.log('initialize peer');
+initializePeer();
+console.log('done initializing peer');
 
 let circles = [];
 let circleSize = 100;

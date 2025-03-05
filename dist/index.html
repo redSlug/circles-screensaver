@@ -4,23 +4,12 @@
   <meta charset="UTF-8">
   <title>circles-screensaver</title>
   <link rel="stylesheet" href="style.css">
-
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </head>
-  <body>
-    <script src="script.js"></script>
-  </body>
-</html>
-<!-- partial -->
-  <script  src="script.js"></script>
-
+  <script  src="script.js" type="module"></script>
+  <script  src="networking.js" type="module"></script>
+  <div id="peer-id-link-container">Share this with a friend.</div>
 </body>
 </html>
