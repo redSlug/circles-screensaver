@@ -13,9 +13,9 @@ const colors = [
   "#56fafb",
 ];
 
-console.log('initialize peer');
+console.log("initialize peer");
 initializePeer();
-console.log('done initializing peer');
+console.log("done initializing peer");
 
 let circles = [];
 let circleSize = 100;
@@ -118,7 +118,6 @@ class CircleFriend {
       random(50, windowWidth - 50),
       random(50, windowHeight - 50)
     );
-    this.text = "hi";
     this.size = circleSize;
     this.color = random(colors);
     this.velocity = createVector(
