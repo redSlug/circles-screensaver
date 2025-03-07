@@ -13,9 +13,9 @@ const colors = [
   "#56fafb",
 ];
 
-console.log('initialize peer');
+console.log("initialize peer");
 initializePeer();
-console.log('done initializing peer');
+console.log("done initializing peer");
 
 let circles = [];
 let circleSize = 100;
